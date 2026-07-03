@@ -10,12 +10,7 @@ public:
         int ht = min(height[lb],height[rb]);
         int currwater = width*ht;
         maxarea = max(maxarea,currwater);
-        if(height[lb]<height[rb]){
-            lb++;
-        }
-        else{
-            rb--;
-        }
+     height[lb]<height[rb] ? lb++ : rb--;
        }
        return maxarea;
     }
