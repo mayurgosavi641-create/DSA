@@ -1,17 +1,22 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        int maxarea =0;
-        int n=height.size();
-       int lb =0;
-       int rb =n-1;
-       while(lb<rb){
-        int width = rb-lb;
-        int ht = min(height[lb],height[rb]);
-        int currwater = width*ht;
-        maxarea = max(maxarea,currwater);
-     height[lb]<height[rb] ? lb++ : rb--;
-       }
-       return maxarea;
+        int leftboundary=0;
+        int rightboundary=height.size()-1;
+        int maxarea=0;
+        while(leftboundary<rightboundary){
+            int width=rightboundary-leftboundary;
+            int ht=min(height[leftboundary],height[rightboundary]);
+            int currarea=width*ht;
+            maxarea=max(currarea,maxarea);
+            if(height[leftboundary]<height[rightboundary]){
+                leftboundary++;
+            }
+            else{
+                rightboundary--;
+            }
+
+        }
+        return maxarea;
     }
 };
