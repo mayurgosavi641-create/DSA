@@ -8,7 +8,7 @@ public:
      int end=n;
      int bad;
      while(start<=end){
-        int mid = start+(end-start)/2;
+        int mid=start+(end-start)/2;
         if(isBadVersion(mid)){
             bad=mid;
             end=mid-1;
@@ -16,7 +16,7 @@ public:
         else{
             start=mid+1;
         }
-     }   
+     }
      return bad;
     }
 };
