@@ -10,7 +10,7 @@ public:
         int j=i+1;
         int k=nums.size()-1;
         while(j<k){
-            int sum = nums[i] + nums[j] + nums[k];
+            int sum= nums[i]+nums[j]+nums[k];
             if(sum<0){
                 j++;
             }
@@ -19,8 +19,7 @@ public:
             }
             else {
                 ans.push_back({nums[i],nums[j],nums[k]});
-                j++;
-                k--;
+                j++,k--;
                 while(j<k && nums[j]==nums[j-1]){
                     j++;
                 }
