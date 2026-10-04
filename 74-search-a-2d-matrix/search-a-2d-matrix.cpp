@@ -7,25 +7,24 @@ public:
  int er=m-1;
  while(sr<=er){
     int mr=(sr+er)/2;
-    if(target>=matrix[mr][0] && target<=matrix[mr][n-1]){
-        int start=0;
+    if(matrix[mr][0]<=target && matrix[mr][n-1]>=target){
+        int st=0;
         int end=n-1;
-        while(start<=end){
-            int mid=(start+end)/2;
-            if(target==matrix[mr][mid]){
+        while(st<=end){
+            int mid=(st+end)/2;
+            if(matrix[mr][mid]==target){
                 return true;
             }
-            else if(target>matrix[mr][mid]){
-                start=mid+1;
+            else if(matrix[mr][mid]<target){
+                st=mid+1;
             }
-            else{
+            else {
                 end=mid-1;
             }
         }
         return false;
-
     }
-    else if(target<matrix[mr][0]){
+    else if(matrix[mr][0]>target){
         er=mr-1;
     }
     else{
