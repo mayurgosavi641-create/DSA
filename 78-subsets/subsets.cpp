@@ -7,7 +7,6 @@ void getallsubsets(vector<int>&nums,vector<int>& ans,int i,vector<vector<int>>& 
   }
   ans.push_back(nums[i]);
   getallsubsets(nums,ans,i+1,allsubsets);
-
   ans.pop_back();
   getallsubsets(nums,ans,i+1,allsubsets);
 }
