@@ -14,7 +14,7 @@ void getallsubsets(vector<int>&nums,vector<int>& ans,int i,vector<vector<int>>& 
     vector<vector<int>> subsets(vector<int>& nums) {
       vector<int>ans;
       vector<vector<int>>allsubsets;
-getallsubsets(nums,ans,0,allsubsets);
-return allsubsets;
+      getallsubsets(nums,ans,0,allsubsets);
+      return allsubsets;
     }
 };
