@@ -11,7 +11,7 @@ bool isSafe(vector<string>& board,int n,int row,int col){
             return false;
         }
     }
-    for(int i=row,j=col;i>=0 && j>=0;i--,j--){
+    for(int i=row,j=col;i>=0 && j>=0 ; i--,j--){
         if(board[i][j]=='Q'){
             return false;
         }
@@ -40,7 +40,6 @@ void nQueens(vector<string>& board,int n,int row,int& count){
         vector<string>board(n,string(n,'.'));
         int count=0;
         nQueens(board,n,0,count);
-        return count;
-
+    return count;
     }
 };
