@@ -26,22 +26,22 @@ bool isSafe(vector<string>& board,int n,int row,int col){
 }
 
 void nQueens(vector<string>& board,int n,int row,int& count){
-   if(row==n){
-        count++;
-        return;
-    }
-    for(int j=0;j<n;j++){
-        if(isSafe(board,n,row,j)){
-            board[row][j]='Q';
-            nQueens(board,n,row+1,count);
-            board[row][j]='.';
-        }
-    }
+  if(row==n){
+    count++;
+    return;
+  }
+  for(int j=0;j<n;j++){
+if(isSafe(board,n,row,j)){
+    board[row][j]='Q';
+    nQueens(board,n,row+1,count);
+    board[row][j]='.';
+}
+  }
 }
     int totalNQueens(int n) {
+        int count=0;
       vector<string>board(n,string(n,'.'));
-      int count=0;
       nQueens(board,n,0,count);
-      return count; 
+      return count;
     }
 };
