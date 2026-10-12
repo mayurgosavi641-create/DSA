@@ -1,14 +1,13 @@
 class Solution {
 public:
 bool isSafe(vector<string>& board,int n,int row,int col){
-   for(int j=0;j<n;j++){
-    if(board[row][j]=='Q'){
-        return false;
-    }
-    
-   }
    for(int i=0;i<n;i++){
     if(board[i][col]=='Q'){
+        return false;
+    }
+   }
+   for(int j=0;j<n;j++){
+    if(board[row][j]=='Q'){
         return false;
     }
    }
@@ -26,22 +25,22 @@ bool isSafe(vector<string>& board,int n,int row,int col){
 }
 
 void nQueens(vector<string>& board,int n,int row,int& count){
-  if(row==n){
+ if(row==n){
     count++;
     return;
-  }
-  for(int j=0;j<n;j++){
-if(isSafe(board,n,row,j)){
-    board[row][j]='Q';
-    nQueens(board,n,row+1,count);
-    board[row][j]='.';
-}
-  }
+ }
+ for(int j=0;j<n;j++){
+    if(isSafe(board,n,row,j)){
+        board[row][j]='Q';
+        nQueens(board,n,row+1,count);
+        board[row][j]='.';
+    }
+ }
 }
     int totalNQueens(int n) {
         int count=0;
-      vector<string>board(n,string(n,'.'));
-      nQueens(board,n,0,count);
-      return count;
+     vector<string>board(n,string(n,'.'));
+     nQueens(board,n,0,count);
+     return count;
     }
 };
