@@ -1,34 +1,30 @@
 class Solution {
 public:
 bool issafe(vector<vector<char>>& board,int row,int col,char dig){
-//if current row contains exact dig then return false
-    for(int i=0;i<9;i++){
-        if(board[i][col]==dig){
+for(int i=0;i<9;i++){
+    if(board[i][col]==dig){
+        return false;
+    }
+}
+for(int j=0;j<9;j++){
+    if(board[row][j]==dig){
+        return false;
+    }
+}
+int srow=(row/3)*3;
+int scol=(col/3)*3;
+for(int i=srow;i<srow+3;i++){
+    for(int  j=scol;j<scol+3;j++){
+        if(board[i][j]==dig){
             return false;
         }
     }
-    //if current column contains same dig then return false
-    for(int j=0;j<9;j++){
-        if(board[row][j]==dig){
-            return false;
-        }
-    }
-    //starting index of row and col of 3*3 grid for current grid 
-    int startrowidx=(row/3)*3;
-    int startcolidx=(col/3)*3;
-    //if dig present in 3*3 grid then return false
-    for(int i=startrowidx;i<=startrowidx+2;i++){
-        for(int j=startcolidx;j<=startcolidx+2;j++){
-            if(board[i][j]==dig){
-                return false;
-            }
-        }
-    }
-    return true;
+}
+return true;
 }
     bool sudoku(vector<vector<char>>& board,int row, int col){
         //Base Case: if row value exceeds 9 then function is at end hence return true
-        if(row==9){
+        if (row==9){
             return true;
         }
         
