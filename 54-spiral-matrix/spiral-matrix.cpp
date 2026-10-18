@@ -8,28 +8,27 @@ public:
      int er=m-1;
      int sc=0;
      int ec=n-1;
-     while(sr<=er && sc<=ec){
+    while(sr<=er && sc<=ec){
         for(int i=sc;i<=ec;i++){
             ans.push_back(matrix[sr][i]);
         }
         for(int i=sr+1;i<=er;i++){
             ans.push_back(matrix[i][ec]);
-
         }
         for(int i=ec-1;i>=sc;i--){
             if(sr==er){
-                break;
+                continue;
             }
             ans.push_back(matrix[er][i]);
         }
         for(int i=er-1;i>sr;i--){
             if(sc==ec){
-                break;
+                continue;
             }
             ans.push_back(matrix[i][sc]);
         }
         sr++,er--,sc++,ec--;
-     }
-     return ans;
+    }
+    return ans;
     }
 };
