@@ -14,17 +14,16 @@ public:
             int k=j+1;
             int l=nums.size()-1;
             while(k<l){
-                long long sum = (long long) nums[i]+(long long)nums[j]+(long long)nums[k]+(long long)nums[l];
+                long long sum=(long long) nums[i]+(long long) nums[j]+(long long) nums[k]+(long long) nums[l];
                 if(sum<target){
                     k++;
                 }
                 else if(sum>target){
                     l--;
                 }
-                else {
+                else{
                     ans.push_back({nums[i],nums[j],nums[k],nums[l]});
-                    k++;
-                    l--;
+                    k++,l--;
                     while(k<l && nums[k]==nums[k-1]){
                         k++;
                     }
