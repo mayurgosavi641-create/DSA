@@ -1,16 +1,17 @@
 class Solution {
 public:
-    vector<vector<int>> generateMatrix(int n) {
-        vector<vector<int>>ans(n,vector<int>(n,0));
+    vector<vector<int>>generateMatrix(int n){
+vector<vector<int>>ans(n,vector<int>(n,0));
         int idx=1;
         int srow=0;
         int scol=0;
         int erow=n-1;
         int ecol=n-1;
         while(srow<=erow && scol<=ecol){
-        for(int i=scol;i<=ecol;i++){
+        for(int i=srow;i<=ecol;i++){
             ans[srow][i]=idx;
             idx++;
+
         }
         for(int i=srow+1;i<=erow;i++){
             ans[i][ecol]=idx;
@@ -30,9 +31,13 @@ public:
             ans[i][scol]=idx;
             idx++;
         }
-        srow++,scol++,erow--,ecol--;
+        srow++,scol++;
+        erow--;
+        ecol--;
         }
-        return ans;
+        
+    
+    return ans;
 
     }
 };
